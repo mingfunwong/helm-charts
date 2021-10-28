@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   enu-node:
   - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2021-10-28T16:24:12.295033831Z"
+    description: A Helm chart for Kubernetes
+    digest: bfaaeebfcdaedd976598535e5b5b5bdced63598335228b2a2783d831b6f567ef
+    name: enu-node
+    type: application
+    urls:
+    - https://github.com/mingfunwong/helm-charts/releases/download/enu-node-0.2.0/enu-node-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
     appVersion: 1.16.0
     created: "2021-10-28T16:03:46.795780703Z"
     description: A Helm chart for Kubernetes
