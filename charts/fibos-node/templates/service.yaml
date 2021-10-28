@@ -11,10 +11,12 @@ spec:
       targetPort: 8888
       protocol: TCP
       name: http
+    {{ if .Values.service.p2pPort }}
     - port: {{ .Values.service.p2pPort }}
       targetPort: 9977
       nodePort: {{ .Values.service.p2pPort }}
       protocol: TCP
       name: p2p
+    {{- end }}
   selector:
     {{- include "fibos-node.selectorLabels" . | nindent 4 }}
