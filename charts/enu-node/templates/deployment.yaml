@@ -1,0 +1,76 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "enu-node.fullname" . }}
+  labels:
+    {{- include "enu-node.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "enu-node.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "enu-node.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 8123
+              protocol: TCP
+            - name: p2p
+              containerPort: 9003
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /v1/chain/get_info
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /v1/chain/get_info
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          env:
+            - name: PRODUCER_ENABLE
+              value: '{{ .Values.PRODUCER_ENABLE }}'
+            - name: PRODUCER_NAME
+              value: {{ .Values.PRODUCER_NAME }}
+            - name: PUBLIC_KEY
+              value: {{ .Values.PUBLIC_KEY }}
+            - name: PRIVATE_KEY
+              value: {{ .Values.PRIVATE_KEY }}
+            - name: PRODUCER_API_ENABLE
+              value: '{{ .Values.PRODUCER_API_ENABLE }}'
+            - name: SNAPSHOT_URL
+              value: {{ .Values.SNAPSHOT_URL }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
