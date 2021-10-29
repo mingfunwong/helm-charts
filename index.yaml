@@ -53,6 +53,16 @@ entries:
     version: 0.1.1
   fibos-node:
   - apiVersion: v2
+    appVersion: 1.7.1.12.1
+    created: "2021-10-29T18:23:53.215789775Z"
+    description: A Helm chart for Kubernetes
+    digest: c13b0bf3df87942e2ee8f6b0e0ddcc67361d3b9567ed82454667c7f647326e02
+    name: fibos-node
+    type: application
+    urls:
+    - https://github.com/mingfunwong/helm-charts/releases/download/fibos-node-1.0.3/fibos-node-1.0.3.tgz
+    version: 1.0.3
+  - apiVersion: v2
     appVersion: 1.7.1.12
     created: "2021-10-29T17:38:23.141699517Z"
     description: A Helm chart for Kubernetes
