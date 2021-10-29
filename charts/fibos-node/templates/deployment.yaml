@@ -58,6 +58,8 @@ spec:
               value: {{ .Values.PUBLIC_KEY }}
             - name: PRIVATE_KEY
               value: {{ .Values.PRIVATE_KEY }}
+            - name: PRODUCER_API_ENABLE
+              value: '{{ .Values.PRODUCER_API_ENABLE }}'
             - name: SNAPSHOT_ENABLE
               value: '{{ .Values.SNAPSHOT_ENABLE }}'
             - name: SNAPSHOT_URL
