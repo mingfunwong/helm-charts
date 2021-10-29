@@ -3,6 +3,16 @@ entries:
   enu-node:
   - apiVersion: v2
     appVersion: 1.7.3
+    created: "2021-10-29T18:33:36.516132935Z"
+    description: A Helm chart for Kubernetes
+    digest: cb4b8027f5b17e0fa75032ced7656f4220aed15e752f4115890422cd069f50a3
+    name: enu-node
+    type: application
+    urls:
+    - https://github.com/mingfunwong/helm-charts/releases/download/enu-node-1.0.4/enu-node-1.0.4.tgz
+    version: 1.0.4
+  - apiVersion: v2
+    appVersion: 1.7.3
     created: "2021-10-29T17:38:22.970712939Z"
     description: A Helm chart for Kubernetes
     digest: 922acecc0f001b9651f0bf19bc7bd2b8d41c2bb562b8bdacb2770b553dd38d90
@@ -52,6 +62,16 @@ entries:
     - https://github.com/mingfunwong/helm-charts/releases/download/enu-node-0.1.1/enu-node-0.1.1.tgz
     version: 0.1.1
   fibos-node:
+  - apiVersion: v2
+    appVersion: 1.7.1.12.1
+    created: "2021-10-29T18:33:36.629284201Z"
+    description: A Helm chart for Kubernetes
+    digest: 429e25eff4a938feb18025eff7e120ee4ca7b9b1ac8ea65c9a08ff4976147179
+    name: fibos-node
+    type: application
+    urls:
+    - https://github.com/mingfunwong/helm-charts/releases/download/fibos-node-1.0.4/fibos-node-1.0.4.tgz
+    version: 1.0.4
   - apiVersion: v2
     appVersion: 1.7.1.12.1
     created: "2021-10-29T18:23:53.215789775Z"
