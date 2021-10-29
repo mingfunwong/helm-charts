@@ -43,12 +43,12 @@ spec:
             httpGet:
               path: /v1/chain/get_info
               port: http
-            initialDelaySeconds: 600
+            initialDelaySeconds: 120
           readinessProbe:
             httpGet:
               path: /v1/chain/get_info
               port: http
-            initialDelaySeconds: 600
+            initialDelaySeconds: 120
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
